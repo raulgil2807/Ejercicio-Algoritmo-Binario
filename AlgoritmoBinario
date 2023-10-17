@@ -1,0 +1,36 @@
+package algoritmobinario;
+
+import java.util.Arrays;
+
+public class AlgoritmoBinario {
+
+    public static boolean binarySearch(int[] numbers, int numeroabuscar) {
+        int inicio = 0;
+        int fin = numbers.length - 1;
+
+        while (inicio <= fin) {
+            int mitad = (inicio + fin) / 2;
+
+            if (numbers[mitad] == numeroabuscar) {
+                return true;
+            } else if (numbers[mitad] < numeroabuscar) {
+                inicio = mitad + 1;
+            } else {
+                fin = mitad - 1;
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[] array = {4, 5, 7, 10, 12, 15, 18, 20, 22, 28, 31};
+        int numeroabuscar = 20;
+
+        if (binarySearch(array, numeroabuscar)) {
+            System.out.println("Se ha encontrado el elemento");
+        } else {
+            System.out.println("No se ha encontrado el elemento");
+        }
+    }
+}
